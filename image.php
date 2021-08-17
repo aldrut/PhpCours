@@ -55,6 +55,20 @@
             }
         }
 
+$dir = 'images/';
+$file = scandir($dir);
+
+foreach($file as $x)
+{
+    if($x == '..')
+    { 
+        continue; 
+    }
+    else
+    {
+        echo $x.'<br>';
+    }
+}
 
 
         ?>
