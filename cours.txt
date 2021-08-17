@@ -1,0 +1,3 @@
+isset($_post["nom"]) verifie qu'une variable existe pour traiter des données dans le formulaire
+
+file_get_contents => fonction récupérant les données json

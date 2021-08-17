@@ -75,5 +75,38 @@ for(let i=0; i < 10; i++)
     console.log(x);
 }
 
+function toto(msg)
+{
+    msg = "toto est de retour";
+    console.log(msg);
+}
 
+const pi = 3.14159;
 
+//tableau indicé
+let tab = [1,3,5,7,9];
+tab.push(11);
+tab[0]; // vaut 1
+tab[1]; // vaut 3
+
+let prenom = ["Laurent","Lucien","Loic"];
+
+for(let i = 0; i < prenom.length; i++)
+{
+    console.log(prenom[i]);
+}
+
+//push add 
+//unshift insert au début 
+//pop retire le dernnier 
+//shift
+
+let cars = 
+{
+    "volvo" :10,
+    "renault" : 25,
+    "peugeot" : 2
+}
+
+cars.volvo;
+cars["volvo"];
