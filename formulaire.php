@@ -51,9 +51,40 @@
 
 $fichier = file_get_contents("cours.txt");
 // var_dump($fichier);
+//ajoute contenu dans un fichier
+/* version 1*/
+//file_put_contents("test.txt", $fichier, FILE_APPEND);
+/*version 2*/
+ //file_put_contents("test.txt", PHP_EOL . $fichier, FILE_APPEND);
 
-file_put_contents("test.txt",$fichier, FILE_APPEND);
+ //if(file_exists(test3.txt))
 
+ /******renommer un fichier*****/
+ //rename('test1.txt','test2.txt');
+//  if(file_exists("test1.txt"))
+//  {
+//     rename('test1.txt','test2.txt');
+//  }
+ // supprimer un fichier
+ //$test = unlink("test2.txt");
+
+//PARSE DU JSON
+//$fichierJSON = file_get_contents("data.json");
+//parser en json
+//$json = json_decode($fichierJSON);
+
+//json_encode
+//$jsonTxt = json_encode($fichierJSON);
+
+//creer un répertoire
+
+// if(!mkdir('toto2',0777,true))
+// {
+//     echo "erreur";
+// }
+
+
+//var_dump($jsonTxt);
 
 ?>
 
