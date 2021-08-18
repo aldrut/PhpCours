@@ -1,3 +1,7 @@
 isset($_post["nom"]) verifie qu'une variable existe pour traiter des données dans le formulaire
 
 file_get_contents => fonction récupérant les données json
+
+enctype="multipart/form-data" dans form pour trasnfert de fichier
+
+[&& - AND] [OR ||]
