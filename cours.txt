@@ -5,3 +5,34 @@ file_get_contents => fonction récupérant les données json
 enctype="multipart/form-data" dans form pour trasnfert de fichier
 
 [&& - AND] [OR ||]
+
+
+strrpos($xxx,"_") cherche le dernier parametre donnee l'underscore
+
+ <?php
+        // $nomDossier = 'images';
+        // $dossier = file_exists($nomDossier);
+
+
+        // if($dossier == true) 
+        // {
+        //     echo "dossier existe".'<br>';
+        //  }
+        //  else{
+        // echo "création du dossier".'<br>';
+        //   mkdir($nomDossier,0777,true);
+        //  }
+
+        // if(isset($_POST["submit"]))
+        // {
+        //     move_uploaded_file($_FILES["fileContent"], $nomDossier);
+
+        //     echo 'file downloaded';
+        // }
+        // else{
+        //     echo 'file no downloaded';
+        // }
+
+
+
+        ?>
