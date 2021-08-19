@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+ 
     <title>Document</title>
     <style>
         .taille
@@ -50,7 +51,7 @@
                         <div class="col m-2 bg-danger"><?= $infosFichier["extension"] ?></div>
                         <div class="col m-2 bg-warning"><?= round(filesize($dir . $infosFichier["basename"]) / 1024, 2) . 'Ko' ?></div>
                         <div class="col"><a href="image.php?img=<?= $infosFichier["filename"].'.'.$infosFichier["extension"]?>">Détails</a>
-                        <a href="image.php?del=<?= $infosFichier["filename"].'.'.$infosFichier["extension"]?>">Supprimer</a></div>
+                        <a data-toggle="modal" data-target="#myModal" href="image.php?del=<?= $infosFichier["filename"].'.'.$infosFichier["extension"]?>">Supprimer</a></div>
                         <?php
                          if(isset($_GET['del']) && $_GET['del'] == $x)
                        { 
@@ -62,13 +63,14 @@
                     </div>
                     <div class="row">
                     <?php
-            if(isset($_GET['img']) && $_GET['img'] == $x)
+            if(isset($_GET['img']) && $_GET['img'] == $x
+            )
             {?>
             <div class="col">
                 <img src='<?= $dir.$infosFichier["filename"].'.'.$infosFichier["extension"]?>' class="taille" />
             </div>
             <div class="col">
-                <input type="text" name="txtRename" width="275" value="<?= $infosFichier["filename"] ?>">
+                <input type="text" name="txtRename.<?= $x ?>" width="275" value="<?= $infosFichier["filename"] ?>">
                 <input type="submit" name="rename" value="renommer">
                
             </div>
@@ -81,11 +83,16 @@
             }
             ?>
              <?php
-               if(isset($_POST['rename']))
-               {
-                    rename($dir.$x, $dir.$_POST['txtRename'].'.'.$infosFichier["extension"]);
-                    header("Location: image.php");  
-               }
+                if (isset($_POST['submit'])) {
+                    if (empty($_POST["txtRename.<?= $x ?>"])) {
+                        echo 'le champ pour renommer ' . $x . ' est vide attention';
+                    } else {
+                        rename($dir . $x, $dir . $_POST['txtRename'] . '.' . $infosFichier["extension"]);
+                        header("Location: image.php");
+                    }
+                }
+            
+            
                 ?>
         </div>
         </div>
@@ -111,6 +118,10 @@
         header("Location: image.php");
     }
     ?>
+ 
+
+
+
 </body>
 
 </html>
